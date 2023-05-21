@@ -222,19 +222,33 @@ print(data[99])'''
 
 data = []
 comment_count = 0
+comment_100 = 0
+comment_100_2 = []
 
 with open('reviews.txt', 'r') as x:
 	for comment in x:
-		comment = comment.strip()
+#		comment = comment.strip()
 		comment_count = comment_count + len(comment)
+		data.append(comment)
+		if len(comment) < 100:
+			comment_100 = comment_100 + 1
+			comment_100_2.append(comment)
 
-print('留言的平均長度是：', comment_count / 1000000)
+
+print('檔案讀取完，總共有', len(data), '筆資料')
+print('留言的平均長度是：', comment_count / len(data))
+print('留言少於100字的數量是：', comment_100)
+print('留言少於100字的數量是：', len(comment_100_2))
+print(comment_100_2[0])
+print(comment_100_2[1])
+
 
 '''
 python3 reviews_check.py
 
 #更新版本用
 git add reviews_check.py
-git commit -m "計算留言平均長度"
+git commit -m "改了計算留言平均長度的公式
+加了兩種計算留言長度少於100字的公式"
 git push origin main
 '''
