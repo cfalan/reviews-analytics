@@ -224,12 +224,15 @@ data = []
 comment_count = 0
 comment_100 = 0
 comment_100_2 = []
+comment_good = []
 
 with open('reviews.txt', 'r') as x:
 	for comment in x:
 #		comment = comment.strip()
 		comment_count = comment_count + len(comment)
 		data.append(comment)
+		if comment.contain(good):
+			comment_good.append(comment)
 		if len(comment) < 100:
 			comment_100 = comment_100 + 1
 			comment_100_2.append(comment)
