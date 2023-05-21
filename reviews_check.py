@@ -249,7 +249,10 @@ python3 reviews_check.py
 #更新版本用
 git add reviews_check.py
 git commit -m "
-試試版本更新message
+試試版本更新message.2
+
+
+加入更多空行
 "
 git push origin main
 '''
