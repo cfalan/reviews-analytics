@@ -225,25 +225,43 @@ comment_count = 0
 comment_100 = 0
 comment_100_2 = []
 comment_good = []
+comment_good_2 = []
+comment_bad = []
+
 
 with open('reviews.txt', 'r') as x:
 	for comment in x:
 #		comment = comment.strip()
 		comment_count = comment_count + len(comment)
 		data.append(comment)
-		if comment.contain(good):
+		if 'good' in comment:
 			comment_good.append(comment)
 		if len(comment) < 100:
 			comment_100 = comment_100 + 1
 			comment_100_2.append(comment)
+
+with open('reviews.txt', 'r') as x:
+	comment_good_2 = [comment.strip() for comment in x if 'it is good' in comment]
+
+with open('reviews.txt', 'r') as x:
+	comment_bad = ['bad' in comment for comment in x]
+# or
+comment_bad = []
+for comment in x:
+	comment_bad.append('bad' in comment)
+
 
 
 print('檔案讀取完，總共有', len(data), '筆資料')
 print('留言的平均長度是：', comment_count / len(data))
 print('留言少於100字的數量是：', comment_100)
 print('留言少於100字的數量是：', len(comment_100_2))
-print(comment_100_2[0])
-print(comment_100_2[1])
+print('留言包含「good」的數量是：', len(comment_good))
+print('留言包含「it is good」的數量是：', len(comment_good_2))
+
+
+print(comment_good_2[0])
+# print(comment_100_2[1])
 
 
 '''
@@ -251,11 +269,6 @@ python3 reviews_check.py
 
 #更新版本用
 git add reviews_check.py
-git commit -m "
-試試版本更新message.2
-
-
-加入更多空行
-"
+git commit -m "加入快寫法，當中的裝入data，運算式，append 運算式"
 git push origin main
 '''
