@@ -248,7 +248,8 @@ python3 reviews_check.py
 
 #更新版本用
 git add reviews_check.py
-git commit -m "改了計算留言平均長度的公式
-加了兩種計算留言長度少於100字的公式"
+git commit -m "
+試試版本更新message
+"
 git push origin main
 '''
